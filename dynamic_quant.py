@@ -4,7 +4,6 @@ import torch.nn.functional as F
 from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments
 import numpy as np
 from typing import Dict, List, Tuple
-from qwen_simplify import qwen_layers
 import copy
 import json
 import re
@@ -456,7 +455,6 @@ def main():
     # Load Qwen 0.5B model (smallest available)
     model_name = "Qwen/Qwen3-0.6B"
     print(f"Loading model: {model_name}")
-    model = qwen_layers(model_name)
     
     try:
         model = AutoModelForCausalLM.from_pretrained(
